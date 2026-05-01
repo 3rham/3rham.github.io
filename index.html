@@ -21,21 +21,37 @@
     html{scroll-behavior:smooth;}
     body{background:#fbfbfa;color:var(--text);font-family:"Courier New",Courier,monospace;line-height:1.25;min-height:100vh;}
     .page{width:min(900px,88vw);margin:0 auto;padding:28px 0 54px;}
+
+    /* NAV */
     nav{display:flex;align-items:center;gap:32px;margin-bottom:52px;font-size:clamp(1rem,1.7vw,1.3rem);letter-spacing:0.03em;}
     nav a{color:var(--text);text-decoration:none;position:relative;padding-bottom:4px;transition:color .2s,transform .2s;}
     nav a:hover{color:var(--red);transform:translateY(-2px);}
     nav a.active::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:4px;background:var(--gold);}
+
     main{display:flex;flex-direction:column;gap:28px;}
+
+    /* PROMPT */
     .prompt{font-weight:bold;font-size:clamp(1rem,1.7vw,1.35rem);margin-bottom:10px;}
     .prompt span{font-weight:normal;}
+
+    /* OUTPUT */
     .out{font-size:clamp(0.98rem,1.65vw,1.28rem);line-height:1.5;}
     .out p{margin-bottom:10px;}
     .out p:last-child{margin-bottom:0;}
-    .out.welcome p{font-weight:bold;-webkit-text-stroke:0.25px currentColor;}
+
+    /* WELCOME — bold, forced */
+    .out.welcome p{
+      font-weight:bold;
+      -webkit-text-stroke:0.3px var(--text);
+    }
     .accent{color:var(--gold);font-weight:bold;}
+
+    /* STATUS */
     .status-wrap{display:grid;grid-template-columns:minmax(280px,380px) 1fr;align-items:center;gap:28px;margin-top:6px;}
     .ascii{display:inline-block;white-space:pre;font-size:clamp(0.9rem,1.6vw,1.22rem);line-height:1.04;color:var(--text);text-shadow:1px 1px 0 rgba(0,0,0,.08),2px 2px 0 rgba(0,0,0,.05),6px 10px 20px rgba(0,0,0,.1);transform:rotateX(6deg) rotateY(-12deg);transition:transform .28s ease,text-shadow .28s ease;cursor:default;user-select:none;}
     .ascii:hover{transform:rotateX(0) rotateY(0) translateY(-5px) scale(1.03);text-shadow:1px 1px 0 rgba(0,0,0,.1),4px 4px 0 rgba(228,178,41,.25),10px 16px 28px rgba(0,0,0,.18);}
+
+    /* GLOW PULSE */
     .info{font-size:clamp(0.98rem,1.65vw,1.22rem);line-height:1.55;animation:glow 2.6s ease-in-out infinite;}
     @keyframes glow{
       0%,100%{opacity:.5;text-shadow:none;}
@@ -47,10 +63,13 @@
     .lbl{color:var(--red);font-weight:bold;}
     .lbl.s{color:var(--pink);}
     .val{font-weight:normal;color:var(--text);}
+
     .palette{display:flex;gap:48px;margin-top:18px;}
     .bar{display:flex;height:12px;width:108px;border-radius:1px;overflow:hidden;}
     .bar span{flex:1;}
-    .cr{background:var(--red);} .cg{background:var(--gold);} .cs{background:var(--soft);} .cd{background:var(--dark);}
+    .cr{background:var(--red);}.cg{background:var(--gold);}.cs{background:var(--soft);}.cd{background:var(--dark);}
+
+    /* PROJECTS */
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:6px;}
     .proj-card{border:1.5px solid var(--soft);border-radius:4px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s,transform .2s;display:block;}
     .proj-card:hover{border-color:var(--gold);transform:translateY(-2px);}
@@ -59,12 +78,29 @@
     .proj-desc{font-size:.82rem;color:var(--muted);line-height:1.45;}
     .proj-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;}
     .proj-tag{font-size:.68rem;border:1px solid var(--soft);border-radius:20px;padding:1px 7px;color:var(--muted);}
+
+    /* SOCIALS */
     .socials{display:flex;gap:28px;align-items:center;margin-top:6px;}
     .socials a{width:28px;height:28px;display:inline-grid;place-items:center;text-decoration:none;color:var(--text);transition:transform .2s,opacity .2s;}
     .socials a:hover{transform:translateY(-3px) scale(1.08);opacity:.75;}
     .gh svg{width:27px;height:27px;fill:var(--text);}
     .li{color:var(--blue)!important;font-family:Arial,sans-serif;font-weight:800;font-size:1.55rem!important;}
     .med{background:#11a36a;color:white!important;font-family:Georgia,serif;font-size:1.1rem!important;border-radius:2px;}
+
+    /* WHOAMI TYPEWRITER */
+    .whoami-wrap{font-size:clamp(1rem,1.7vw,1.35rem);font-weight:bold;min-height:1.6em;display:flex;align-items:center;gap:0;}
+    #whoami-text{color:var(--red);}
+    .type-cursor{
+      display:inline-block;
+      width:3px;
+      height:1.1em;
+      background:var(--red);
+      margin-left:3px;
+      vertical-align:text-bottom;
+      animation:cur 0.7s step-end infinite;
+    }
+    @keyframes cur{0%,100%{opacity:1;}50%{opacity:0;}}
+
     @media(max-width:680px){
       .page{width:min(94vw,580px);padding-top:20px;}
       nav{gap:18px;overflow-x:auto;padding-bottom:6px;}
@@ -87,6 +123,7 @@
 
   <main id="home">
 
+    <!-- WELCOME -->
     <section id="welcome">
       <div class="prompt">[arhamkhokar ~]$ <span>echo $WELCOME</span></div>
       <div class="out welcome">
@@ -95,6 +132,7 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="prompt">[arhamkhokar ~]$ <span>experience</span></div>
       <div class="out">
@@ -104,6 +142,7 @@
       </div>
     </section>
 
+    <!-- STATUS -->
     <section id="research">
       <div class="prompt">[arhamkhokar ~]$ <span>status</span></div>
       <div class="status-wrap">
@@ -113,7 +152,7 @@
 | M\    / K|     | M\  /KK/
 | MM\  / KK|     | MM/ KK/ 
 | MM \/  KK|     | MM KK/
-| MM  |  KK|     | MMMK\
+| MM     KK|     | MMMK\
 | MM  |  KK|     | MM \KK\
 | MM  |  KK|     | MM  \KK\
  \MM   \ KK\      \MM   \KK\</pre>
@@ -133,6 +172,7 @@
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="prompt">[arhamkhokar ~]$ <span>ls projects/</span></div>
       <div class="projects-grid">
@@ -157,6 +197,7 @@
       </div>
     </section>
 
+    <!-- SOCIAL -->
     <section>
       <div class="prompt">[arhamkhokar ~]$ <span>social</span></div>
       <div class="socials">
@@ -168,14 +209,61 @@
       </div>
     </section>
 
+    <!-- WHOAMI — typewriter animation -->
     <section>
       <div class="prompt">[arhamkhokar ~]$ <span>whoami</span></div>
       <div class="out">
-        <p>Software Developer</p>
+        <div class="whoami-wrap">
+          <span id="whoami-text"></span><span class="type-cursor"></span>
+        </div>
       </div>
     </section>
 
   </main>
 </div>
+
+<script>
+  const phrases = [
+    "Muhammad Arham Khokar",
+    "a Software Developer",
+    "a Gym Lover"
+  ];
+
+  const el = document.getElementById('whoami-text');
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+  const TYPE_SPEED = 75;
+  const DELETE_SPEED = 40;
+  const PAUSE_FULL = 1800;
+  const PAUSE_EMPTY = 400;
+
+  function tick() {
+    const current = phrases[phraseIndex];
+
+    if (!deleting) {
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        setTimeout(tick, PAUSE_FULL);
+        return;
+      }
+      setTimeout(tick, TYPE_SPEED);
+    } else {
+      charIndex--;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(tick, PAUSE_EMPTY);
+        return;
+      }
+      setTimeout(tick, DELETE_SPEED);
+    }
+  }
+
+  setTimeout(tick, 600);
+</script>
 </body>
 </html>
