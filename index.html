@@ -91,13 +91,13 @@
     }
 
     .prompt {
-      font-weight: 800;
+      font-weight: bold;
       font-size: clamp(1.08rem, 1.8vw, 1.5rem);
       margin-bottom: 18px;
     }
 
     .prompt span {
-      font-weight: 500;
+      font-weight: normal;
     }
 
     .terminal-text {
@@ -109,13 +109,15 @@
       margin-bottom: 18px;
     }
 
+    /* ✅ FIX: bold welcome text — Courier New only supports 'bold' (700), not 800 */
     .welcome-text p {
-      font-weight: 800;
+      font-weight: bold;
+      -webkit-text-stroke: 0.3px currentColor;
     }
 
     .accent {
       color: var(--gold);
-      font-weight: 800;
+      font-weight: bold;
     }
 
     .status-wrap {
@@ -176,23 +178,23 @@
 
     .username {
       color: var(--red);
-      font-weight: 900;
+      font-weight: bold;
       margin-bottom: 2px;
     }
 
     .dash {
       margin-bottom: 12px;
-      font-weight: 800;
+      font-weight: bold;
     }
 
     .info p {
       margin-bottom: 3px;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .label {
       color: var(--red);
-      font-weight: 900;
+      font-weight: bold;
     }
 
     .label.status {
@@ -235,7 +237,7 @@
       text-decoration: none;
       color: var(--text);
       font-size: 1.2rem;
-      font-weight: 900;
+      font-weight: bold;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
@@ -253,7 +255,7 @@
     .linkedin {
       color: var(--blue) !important;
       font-family: Arial, sans-serif;
-      font-weight: 800;
+      font-weight: bold;
       font-size: 1.65rem !important;
     }
 
@@ -318,7 +320,7 @@
       <section>
         <div class="prompt">[arhamkhokar ~]$ <span>echo $WELCOME</span></div>
         <div class="terminal-text welcome-text">
-          <p>Hi, I’m Muhammad Arham Khokar. Glad you’re here!<br />Explore the site to learn more about me and my work <span class="accent">:)</span></p>
+          <p>Hi, I'm Muhammad Arham Khokar. Glad you're here!<br />Explore the site to learn more about me and my work <span class="accent">:)</span></p>
         </div>
       </section>
 
@@ -353,7 +355,7 @@
             <p><span class="label">OS:</span> Lancaster University ~ UA92</p>
             <p><span class="label">Kernel:</span> Specialist Computer Science</p>
             <p><span class="label">Shell:</span> Honours Bachelor of Computer Science</p>
-            <p><span class="label status">Status:</span> Pursuing Bachelor’s, expected to graduate by 28th June 2027</p>
+            <p><span class="label status">Status:</span> Pursuing Bachelor's, expected to graduate by 28th June 2027</p>
 
             <div class="palette" aria-hidden="true">
               <div class="bar"><span class="red"></span><span class="gold"></span></div>
