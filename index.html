@@ -1,4 +1,3 @@
-cat > /home/claude/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@ cat > /home/claude/index.html << 'HTMLEOF'
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230a66c2"/><text x="50" y="61" font-size="42" text-anchor="middle" font-family="Courier New, monospace" font-weight="700" fill="white">MK</text></svg>'>
   <style>
     :root {
-      --bg:   #f7f7f5;
+      --bg:    #f7f7f5;
       --text: #2f2f35;
       --muted:#8d8d8d;
       --gold: #e4b229;
@@ -24,7 +23,7 @@ cat > /home/claude/index.html << 'HTMLEOF'
 
     .page{width:min(900px,88vw);margin:0 auto;padding:28px 0 120px;}
 
-    /* NAV — centred like Abdullah's */
+    /* NAV — centred */
     nav{
       display:flex;
       align-items:center;
@@ -60,7 +59,7 @@ cat > /home/claude/index.html << 'HTMLEOF'
     .ascii{display:inline-block;white-space:pre;font-size:clamp(0.9rem,1.6vw,1.22rem);line-height:1.04;color:var(--text);text-shadow:1px 1px 0 rgba(0,0,0,.08),2px 2px 0 rgba(0,0,0,.05),6px 10px 20px rgba(0,0,0,.1);transform:rotateX(6deg) rotateY(-12deg);transition:transform .28s ease,text-shadow .28s ease;cursor:default;user-select:none;}
     .ascii:hover{transform:rotateX(0) rotateY(0) translateY(-5px) scale(1.03);text-shadow:1px 1px 0 rgba(0,0,0,.1),4px 4px 0 rgba(228,178,41,.25),10px 16px 28px rgba(0,0,0,.18);}
 
-    /* INFO — only text glows, bars are excluded */
+    /* INFO */
     .info{font-size:clamp(0.98rem,1.65vw,1.22rem);line-height:1.55;}
     .info-text{animation:glow 2.6s ease-in-out infinite;}
     @keyframes glow{
@@ -74,7 +73,7 @@ cat > /home/claude/index.html << 'HTMLEOF'
     .lbl.s{color:var(--pink);}
     .val{font-weight:normal;color:var(--text);}
 
-    /* PALETTE BARS — long, stable, no glow */
+    /* PALETTE BARS */
     .palette{display:flex;gap:24px;margin-top:18px;}
     .bar{display:flex;height:13px;width:160px;border-radius:1px;overflow:hidden;}
     .bar span{flex:1;}
@@ -107,7 +106,7 @@ cat > /home/claude/index.html << 'HTMLEOF'
     .type-cursor{display:inline-block;width:3px;height:1.1em;background:var(--red);margin-left:3px;vertical-align:text-bottom;animation:cur 0.7s step-end infinite;}
     @keyframes cur{0%,100%{opacity:1;}50%{opacity:0;}}
 
-    /* FIXED PHOTO + EMAIL — bottom left like Abdullah's */
+    /* FIXED PHOTO + EMAIL */
     .profile-fixed{
       position:fixed;
       bottom:0;
@@ -154,7 +153,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
 <body>
 <div class="page">
 
-  <!-- NAV — centred -->
   <nav>
     <a class="active" href="#home">home</a>
     <a href="#about">about</a>
@@ -166,7 +164,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
 
   <main id="home">
 
-    <!-- WELCOME -->
     <section id="welcome">
       <div class="prompt">[arhamkhokar ~]$ <span>echo $WELCOME</span></div>
       <div class="out welcome">
@@ -175,7 +172,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="prompt">[arhamkhokar ~]$ <span>experience</span></div>
       <div class="out">
@@ -185,13 +181,12 @@ cat > /home/claude/index.html << 'HTMLEOF'
       </div>
     </section>
 
-    <!-- STATUS -->
     <section id="research">
       <div class="prompt">[arhamkhokar ~]$ <span>status</span></div>
       <div class="status-wrap">
         <div>
 <pre class="ascii"> 
- __      __       __     __
+ __       __       __     __
 | M\    / K|     | M\  /KK/
 | MM\  / KK|     | MM/ KK/ 
 | MM \/  KK|     | MM KK/
@@ -202,7 +197,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
         </div>
 
         <div class="info">
-          <!-- text glows -->
           <div class="info-text">
             <p class="info-name">arhamkhokar</p>
             <p class="info-dash">--------------------</p>
@@ -211,7 +205,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
             <p><span class="lbl">Shell:</span> <span class="val">Honours Bachelor of Computer Science</span></p>
             <p><span class="lbl s">Status:</span> <span class="val">Pursuing Bachelor's, graduating June 2027</span></p>
           </div>
-          <!-- bars stable, outside glow animation -->
           <div class="palette">
             <div class="bar"><span class="cr"></span><span class="cg"></span></div>
             <div class="bar"><span class="cs"></span><span class="cd"></span></div>
@@ -220,7 +213,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects">
       <div class="prompt">[arhamkhokar ~]$ <span>ls projects/</span></div>
       <div class="projects-grid">
@@ -245,7 +237,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
       </div>
     </section>
 
-    <!-- SOCIAL -->
     <section>
       <div class="prompt">[arhamkhokar ~]$ <span>social</span></div>
       <div class="socials">
@@ -257,7 +248,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
       </div>
     </section>
 
-    <!-- WHOAMI -->
     <section>
       <div class="prompt">[arhamkhokar ~]$ <span>whoami</span></div>
       <div class="out">
@@ -270,7 +260,6 @@ cat > /home/claude/index.html << 'HTMLEOF'
   </main>
 </div>
 
-<!-- FIXED PHOTO + EMAIL bottom-left -->
 <div class="profile-fixed">
   <img src="IMG_2237.jpg" alt="Muhammad Arham Khokar" />
   <a class="profile-email" href="mailto:4arham4@gmail.com">
@@ -307,4 +296,3 @@ cat > /home/claude/index.html << 'HTMLEOF'
 </script>
 </body>
 </html>
-HTMLEOF
