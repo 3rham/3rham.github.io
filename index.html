@@ -9,7 +9,7 @@
 
   <style>
     :root {
-      --bg: #f7f7f5;
+      --bg: #fbfbfa;
       --text: #2f2f35;
       --muted: #8d8d8d;
       --gold: #e4b229;
@@ -31,26 +31,27 @@
     }
 
     body {
-      background: #fbfbfa;
+      min-height: 100vh;
+      background: var(--bg);
       color: var(--text);
       font-family: "Courier New", Courier, monospace;
       line-height: 1.25;
-      min-height: 100vh;
     }
 
     .page {
-      width: min(980px, 88vw);
+      width: min(900px, 88vw);
       margin: 0 auto;
-      padding: 28px 0 120px;
+      padding: 30px 0 115px;
     }
 
+    /* HEADER: smaller width, centred, clunched */
     nav {
+      width: min(620px, 100%);
+      margin: 0 auto 48px auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: clamp(36px, 6vw, 86px);
-      margin-bottom: 52px;
-      font-size: clamp(1rem, 1.7vw, 1.3rem);
+      justify-content: space-between;
+      font-size: clamp(0.95rem, 1.35vw, 1.18rem);
       letter-spacing: 0.03em;
     }
 
@@ -77,18 +78,19 @@
       background: var(--gold);
     }
 
+    /* BODY: wider than header, but smaller overall scale */
     main {
-      width: min(900px, 100%);
+      width: min(860px, 100%);
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 27px;
     }
 
     .prompt {
       font-weight: bold;
-      font-size: clamp(1rem, 1.7vw, 1.35rem);
-      margin-bottom: 10px;
+      font-size: clamp(0.98rem, 1.45vw, 1.24rem);
+      margin-bottom: 9px;
     }
 
     .prompt span {
@@ -97,16 +99,16 @@
 
     .prompt .force-bold {
       font-weight: bold;
-      -webkit-text-stroke: 0.25px currentColor;
+      -webkit-text-stroke: 0.22px currentColor;
     }
 
     .out {
-      font-size: clamp(0.98rem, 1.65vw, 1.28rem);
-      line-height: 1.48;
+      font-size: clamp(0.96rem, 1.45vw, 1.17rem);
+      line-height: 1.42;
     }
 
     .out p {
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
     .out p:last-child {
@@ -115,7 +117,7 @@
 
     .out.welcome p {
       font-weight: bold;
-      -webkit-text-stroke: 0.25px var(--text);
+      -webkit-text-stroke: 0.22px var(--text);
     }
 
     .accent {
@@ -125,16 +127,16 @@
 
     .status-wrap {
       display: grid;
-      grid-template-columns: minmax(280px, 390px) 1fr;
+      grid-template-columns: minmax(275px, 370px) 1fr;
       align-items: center;
-      gap: 34px;
-      margin-top: 8px;
+      gap: 30px;
+      margin-top: 4px;
     }
 
     .ascii {
       display: inline-block;
       white-space: pre;
-      font-size: clamp(0.9rem, 1.6vw, 1.22rem);
+      font-size: clamp(0.82rem, 1.35vw, 1.08rem);
       line-height: 1.04;
       color: var(--text);
       text-shadow:
@@ -156,8 +158,8 @@
     }
 
     .info {
-      font-size: clamp(0.98rem, 1.65vw, 1.22rem);
-      line-height: 1.42;
+      font-size: clamp(0.95rem, 1.42vw, 1.13rem);
+      line-height: 1.32;
     }
 
     .info-name {
@@ -168,7 +170,7 @@
 
     .info-dash {
       color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       font-weight: bold;
     }
 
@@ -191,13 +193,14 @@
       color: var(--text);
     }
 
+    /* ONLY THIS LINE GLOWS */
     .status-line {
       animation: statusGlow 2.6s ease-in-out infinite;
     }
 
     @keyframes statusGlow {
       0%, 100% {
-        opacity: 0.5;
+        opacity: 0.52;
         text-shadow: none;
       }
 
@@ -209,10 +212,11 @@
       }
     }
 
+    /* LONG, STABLE COLOUR BARS */
     .palette {
       display: flex;
-      gap: 28px;
-      margin-top: 18px;
+      gap: 24px;
+      margin-top: 17px;
       opacity: 1;
       animation: none;
       text-shadow: none;
@@ -221,7 +225,7 @@
     .bar {
       display: flex;
       height: 13px;
-      width: 175px;
+      width: 180px;
       border-radius: 1px;
       overflow: hidden;
       opacity: 1;
@@ -240,15 +244,15 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-top: 6px;
+      grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+      gap: 11px;
+      margin-top: 5px;
     }
 
     .proj-card {
       border: 1.5px solid var(--soft);
       border-radius: 4px;
-      padding: 14px 16px;
+      padding: 12px 14px;
       text-decoration: none;
       color: var(--text);
       transition: border-color 0.2s ease, transform 0.2s ease;
@@ -261,33 +265,33 @@
     }
 
     .proj-num {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       letter-spacing: 0.08em;
     }
 
     .proj-name {
       font-weight: bold;
-      font-size: clamp(0.9rem, 1.5vw, 1.08rem);
+      font-size: clamp(0.86rem, 1.3vw, 0.98rem);
       margin-bottom: 4px;
     }
 
     .proj-desc {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     .proj-tags {
       display: flex;
       gap: 5px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 9px;
     }
 
     .proj-tag {
-      font-size: 0.68rem;
+      font-size: 0.64rem;
       border: 1px solid var(--soft);
       border-radius: 20px;
       padding: 1px 7px;
@@ -296,14 +300,14 @@
 
     .socials {
       display: flex;
-      gap: 28px;
+      gap: 26px;
       align-items: center;
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .socials a {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       display: inline-grid;
       place-items: center;
       text-decoration: none;
@@ -317,8 +321,8 @@
     }
 
     .gh svg {
-      width: 27px;
-      height: 27px;
+      width: 25px;
+      height: 25px;
       fill: var(--text);
     }
 
@@ -326,21 +330,21 @@
       color: var(--blue) !important;
       font-family: Arial, sans-serif;
       font-weight: 800;
-      font-size: 1.55rem !important;
+      font-size: 1.45rem !important;
     }
 
     .med {
       background: #11a36a;
       color: white !important;
       font-family: Georgia, serif;
-      font-size: 1.1rem !important;
+      font-size: 1.02rem !important;
       border-radius: 2px;
     }
 
     .whoami-wrap {
-      font-size: clamp(1rem, 1.7vw, 1.35rem);
+      font-size: clamp(0.98rem, 1.45vw, 1.18rem);
       font-weight: bold;
-      min-height: 1.6em;
+      min-height: 1.5em;
       display: flex;
       align-items: center;
     }
@@ -371,13 +375,13 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 6px;
-      padding: 0 0 18px 18px;
+      padding: 0 0 16px 16px;
       z-index: 100;
     }
 
     .profile-fixed img {
-      width: 118px;
-      height: 118px;
+      width: 108px;
+      height: 108px;
       object-fit: cover;
       object-position: top center;
       border-radius: 6px;
@@ -387,7 +391,7 @@
     }
 
     .profile-email {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--muted);
       display: flex;
       align-items: center;
@@ -401,8 +405,8 @@
     }
 
     .profile-email svg {
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
       fill: currentColor;
       flex-shrink: 0;
     }
@@ -410,14 +414,20 @@
     @media (max-width: 680px) {
       .page {
         width: min(94vw, 580px);
-        padding-top: 20px;
+        padding-top: 22px;
       }
 
       nav {
+        width: 100%;
+        justify-content: flex-start;
         gap: 18px;
         overflow-x: auto;
         padding-bottom: 6px;
-        justify-content: flex-start;
+        margin-bottom: 42px;
+      }
+
+      main {
+        width: 100%;
       }
 
       .status-wrap {
@@ -426,7 +436,7 @@
       }
 
       .ascii {
-        font-size: clamp(0.7rem, 3.2vw, 0.98rem);
+        font-size: clamp(0.68rem, 3.2vw, 0.95rem);
         transform: rotateX(4deg) rotateY(-8deg);
       }
 
@@ -548,7 +558,7 @@
         <div class="socials">
           <a class="gh" href="https://github.com/3rham" target="_blank" rel="noopener" aria-label="GitHub">
             <svg viewBox="0 0 24 24">
-              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.15c-3.2.7-3.87-1.37-3.87-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.16 1.18A10.9 10.9 0 0 1 12 6.03c.98 0 1.96.13 2.88.39 2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.24 2.75.12 3.04.74.8 1.83 1.18 3.08 1.18 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.18c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.15c-3.2.7-3.87-1.37-3.87-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.16 1.18A10.9 10.9 0 0 1 12 6.03c.98 0 1.96.13 2.88.39 2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.24 2.75.12 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.18c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
             </svg>
           </a>
 
